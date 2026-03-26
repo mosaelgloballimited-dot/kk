@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moseal Agro Limited – Fresh Food, Processed Your Way</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #1a5c2a;
+      --green-mid:  #2d7a3e;
+      --green-light:#4caf50;
+      --orange:     #e8720c;
+      --orange-lt:  #f4900c;
+      --cream:      #faf6ee;
+      --text-dark:  #1a2712;
+      --text-mid:   #3a4a2e;
+      --border:     #d5e8c4;
+      --white:      #ffffff;
+      --shadow:     0 4px 24px rgba(26,92,42,.12);
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 68px;
+      box-shadow: 0 2px 12px rgba(26,92,42,.08);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 46px; height: 46px; background: var(--green-dark);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-size: 22px;
+    }
+    .logo-text { line-height: 1.1; }
+    .logo-text span:first-child {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 800; color: var(--green-dark);
+      letter-spacing: .5px;
+    }
+    .logo-text span:last-child {
+      display: block; font-size: 10px; font-weight: 600;
+      color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-weight: 700; font-size: 14px;
+      color: var(--text-dark); padding-bottom: 3px;
+      border-bottom: 2px solid transparent; transition: all .2s;
+    }
+    .nav-links a.active, .nav-links a:hover {
+      color: var(--green-dark); border-bottom-color: var(--green-dark);
+    }
+    .nav-btns { display: flex; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 7px; font-weight: 700;
+      font-size: 14px; cursor: pointer; border: 2px solid transparent;
+      transition: all .2s; text-decoration: none; }
+    .btn-green { background: var(--green-dark); color: #fff; }
+    .btn-green:hover { background: var(--green-mid); }
+    .btn-orange { background: var(--orange); color: #fff; }
+    .btn-orange:hover { background: var(--orange-lt); }
+    .btn-outline-orange { background: transparent; color: var(--orange);
+      border-color: var(--orange); }
+    .btn-outline-orange:hover { background: var(--orange); color: #fff; }
+    .btn-outline-green { background: transparent; color: var(--green-dark);
+      border-color: var(--green-dark); }
+    .btn-outline-green:hover { background: var(--green-dark); color: #fff; }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 540px;
+      background: linear-gradient(135deg, #e8f5e2 0%, #f9f4e8 60%, #fff8ee 100%);
+      display: flex; align-items: stretch; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('images/sus.jpg') center/cover no-repeat;
+      opacity: .07; z-index: 0;
+    }
+    .hero-left {
+      flex: 1; padding: 52px 44px 52px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 800;
+      color: var(--green-dark); line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 14px; color: var(--text-mid); font-weight: 600;
+      margin-bottom: 28px; letter-spacing: .4px;
+    }
+    .hero-sub span { margin: 0 6px; color: var(--green-light); }
+
+    /* Delivery form card */
+    .delivery-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow);
+      margin-bottom: 22px; max-width: 420px;
+    }
+    .delivery-card h3 {
+      font-size: 15px; font-weight: 800; color: var(--green-dark);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+    .form-input {
+      padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 7px;
+      font-size: 13px; font-family: inherit; color: var(--text-dark);
+      background: #f8fbf5; outline: none; transition: border .2s; width: 100%;
+    }
+    .form-input:focus { border-color: var(--green-light); }
+    .form-input::placeholder { color: #a0b090; }
+    select.form-input { appearance: none; cursor: pointer; }
+
+    .phone-btn {
+      background: var(--green-dark); color: #fff; border: none;
+      border-radius: 7px; padding: 9px 12px; font-size: 13px;
+      font-weight: 700; cursor: pointer; display: flex; align-items: center;
+      gap: 5px; white-space: nowrap;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Hero right image */
+    .hero-right {
+      flex: 0 0 48%; position: relative; z-index: 1;
+      overflow: hidden; min-height: 400px;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center;
+      border-radius: 0 0 0 80px;
+    }
+    .hero-right::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--cream) 0%, transparent 18%);
+      pointer-events: none;
+    }
+
+    /* ── SECTION BASE ────────────────────────────────── */
+    section { padding: 60px 60px; }
+    .section-title {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin-bottom: 34px;
+    }
+    .section-title h2 {
+      font-family: 'Playfair Display', serif; font-size: 28px;
+      font-weight: 800; color: var(--green-dark);
+    }
+    .section-title::before, .section-title::after {
+      content: ''; flex: 1; height: 2px;
+      background: linear-gradient(to right, transparent, var(--green-light), transparent);
+    }
+    .section-title .icon {
+      font-size: 24px;
+    }
+
+    /* ── CATEGORIES ──────────────────────────────────── */
+    .categories { background: var(--white); }
+    .cat-head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+    }
+    .cat-head h2 {
+      font-family: 'Playfair Display', serif; font-size: 24px;
+      font-weight: 800; color: var(--green-dark);
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 16px;
+    }
+    .cat-card {
+      background: #f0f7eb; border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 16px 10px; text-align: center;
+      cursor: pointer; transition: all .22s;
+    }
+    .cat-card:hover {
+      background: var(--green-dark); border-color: var(--green-dark);
+      transform: translateY(-4px); box-shadow: 0 8px 20px rgba(26,92,42,.2);
+    }
+    .cat-card:hover .cat-label { color: #fff; }
+    .cat-img {
+      width: 64px; height: 64px; border-radius: 50%;
+      object-fit: cover; margin: 0 auto 10px; display: block;
+      border: 2px solid var(--border);
+    }
+    .cat-label { font-size: 13px; font-weight: 800; color: var(--text-dark); }
+
+    /* ── HOW IT WORKS ────────────────────────────────── */
+    .how-it-works {
+      background: linear-gradient(180deg, #f0f7eb 0%, #e8f5e2 100%);
+    }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform .25s;
+    }
+    .step-card:hover { transform: translateY(-6px); }
+    .step-img { width: 100%; height: 190px; object-fit: cover; }
+    .step-body { padding: 20px; }
+    .step-num {
+      width: 32px; height: 32px; background: var(--green-dark);
+      color: #fff; border-radius: 50%; font-weight: 800; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .step-body h3 { font-size: 16px; font-weight: 800; color: var(--green-dark); }
+    .step-body p { font-size: 13px; color: var(--text-mid); margin-top: 5px; }
+
+    /* ── PAYMENT + ORDER SUMMARY ─────────────────────── */
+    .payment-section {
+      background: var(--white); display: grid;
+      grid-template-columns: 1fr 340px; gap: 28px; align-items: start;
+    }
+    .payment-card, .order-card {
+      border: 1.5px solid var(--border); border-radius: 14px; padding: 28px;
+    }
+    .payment-card h2, .order-card h2 {
+      font-size: 18px; font-weight: 800; color: var(--green-dark);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
+    }
+    .payment-card p { font-size: 13px; color: var(--text-mid); margin-bottom: 20px; }
+    .pay-toggle { display: flex; gap: 12px; margin-bottom: 22px; }
+    .pay-tab {
+      padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: #f8fbf5;
+      color: var(--text-dark); display: flex; align-items: center; gap: 7px;
+      transition: all .2s;
+    }
+    .pay-tab.active { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+    .card-fields { display: grid; gap: 12px; }
+    .card-fields .form-row { margin-bottom: 0; }
+
+    /* Order summary */
+    .order-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px dashed var(--border);
+      font-size: 14px; color: var(--text-mid);
+    }
+    .order-row:last-of-type { border-bottom: none; }
+    .order-total {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; font-weight: 800; font-size: 17px; color: var(--text-dark);
+      border-top: 2px solid var(--border); margin-top: 6px;
+    }
+    .place-btn {
+      width: 100%; margin-top: 18px; padding: 14px;
+      background: var(--green-dark); color: #fff; border: none;
+      border-radius: 10px; font-size: 15px; font-weight: 800;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      gap: 8px; transition: background .2s;
+    }
+    .place-btn:hover { background: var(--green-mid); }
+
+    /* ── FRESHLY PROCESSED ───────────────────────────── */
+    .freshly-section { background: #f0f7eb; }
+    .freshly-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .freshly-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); display: flex; align-items: center;
+      padding: 10px; gap: 12px;
+    }
+    .freshly-card img {
+      width: 120px; height: 100px; object-fit: cover; border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .freshly-arrow {
+      font-size: 26px; color: var(--orange); flex-shrink: 0; font-weight: 900;
+    }
+    .freshly-label { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+
+    /* ── TESTIMONIALS ────────────────────────────────── */
+    .testimonials { background: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .testi-card {
+      background: #f0f7eb; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 24px; display: flex; gap: 16px;
+      align-items: flex-start;
+    }
+    .testi-avatar {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--green-light); flex-shrink: 0;
+    }
+    .testi-body { flex: 1; }
+    .testi-quote {
+      font-size: 14px; color: var(--text-mid); font-style: italic;
+      line-height: 1.6; margin-bottom: 8px;
+    }
+    .testi-name { font-size: 13px; font-weight: 800; color: var(--green-dark); }
+
+    /* ── APP BANNER ──────────────────────────────────── */
+    .app-banner {
+      background: var(--green-dark); padding: 36px 60px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .app-banner h2 {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      color: #fff; font-weight: 700;
+    }
+    .app-banner p { font-size: 13px; color: #b8e0c0; }
+    .app-btns { display: flex; gap: 14px; }
+    .store-btn {
+      background: #000; color: #fff; border-radius: 10px;
+      padding: 10px 20px; display: flex; align-items: center; gap: 10px;
+      text-decoration: none; border: 1px solid #444; transition: background .2s;
+    }
+    .store-btn:hover { background: #222; }
+    .store-btn .store-icon { font-size: 22px; }
+    .store-btn div span:first-child {
+      display: block; font-size: 10px; color: #aaa; }
+    .store-btn div span:last-child {
+      display: block; font-size: 14px; font-weight: 800; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--text-dark); color: #c8d8c0;
+      padding: 22px 60px; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer .phone { font-size: 14px; font-weight: 700; color: #e0f0d8; }
+    footer .foot-links { display: flex; gap: 20px; }
+    footer .foot-links a {
+      color: #c8d8c0; text-decoration: none; font-size: 13px;
+      transition: color .2s;
+    }
+    footer .foot-links a:hover { color: var(--green-light); }
+    .whatsapp-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 56px; height: 56px; background: #25d366;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 28px; box-shadow: 0 6px 20px rgba(0,0,0,.22);
+      cursor: pointer; text-decoration: none; transition: transform .2s;
+    }
+    .whatsapp-fab:hover { transform: scale(1.1); }
+
+    /* ── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left h1  { animation: fadeUp .7s ease both; }
+    .hero-sub      { animation: fadeUp .7s .12s ease both; }
+    .delivery-card { animation: fadeUp .7s .22s ease both; }
+    .hero-actions  { animation: fadeUp .7s .32s ease both; }
+    .hero-right img { animation: fadeUp .9s .1s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">🌾</div>
+    <div class="logo-text">
+      <span>MOSEAL</span>
+      <span>AGRO LIMITED</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#vendors">Vendors</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-btns">
+    <a href="#" class="btn btn-green">Order Now</a>
+    <a href="#" class="btn btn-orange">Become a Rider</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>Fresh Food, Processed<br/>Your Way, Delivered Fast</h1>
+    <p class="hero-sub">Order <span>•</span> Process <span>•</span> Delivered to Your Doorstep</p>
+
+    <div class="delivery-card">
+      <h3>📍 Delivery Location</h3>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Full Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Street Address" />
+        <select class="form-input"><option>City</option><option>Lagos</option><option>Abuja</option><option>Port Harcourt</option></select>
+      </div>
+      <div class="form-row triple">
+        <select class="form-input"><option>State ▾</option><option>Lagos</option><option>FCT</option><option>Rivers</option></select>
+        <select class="form-input"><option>Zip Code ▾</option><option>100001</option><option>900001</option></select>
+        <button class="phone-btn">📞 8259664766</button>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#" class="btn btn-green">Order Now</a>
+      <a href="#" class="btn btn-outline-orange">Become a Vendor</a>
+      <a href="#" class="btn btn-outline-orange">Become a Rider</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="images/imff.jpg" alt="Freshly processed food" />
+  </div>
+</div>
+
+<!-- SHOP BY CATEGORY -->
+<section class="categories">
+  <div class="cat-head">
+    <span style="font-size:22px">🛒</span>
+    <h2>Shop by Category</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img class="cat-img" src="images/sus.jpg" alt="Vegetables" />
+      <div class="cat-label">Vegetables</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/ai.jpg" alt="Poultry" />
+      <div class="cat-label">Poultry</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/cp.jpg" alt="Meat & Fish" />
+      <div class="cat-label">Meat &amp; Fish</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/pepper.jpg" alt="Spices" />
+      <div class="cat-label">Spices</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/ai.jpg" alt="Grains" />
+      <div class="cat-label">Grains</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/iv.jpg" alt="Tubers" />
+      <div class="cat-label">Tubers</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/imff.jpg" alt="Cooking Oil" />
+      <div class="cat-label">Cooking Oil</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how">
+  <div class="section-title">
+    <h2>How It Works</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <img class="step-img" src="images/pepper.jpg" alt="Choose Products" />
+      <div class="step-body">
+        <div class="step-num">1</div>
+        <h3>Choose Your Products</h3>
+        <p>Browse our fresh categories — vegetables, spices, meat, and more. Pick exactly what you need.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img class="step-img" src="images/imff.jpg" alt="Select Processing" />
+      <div class="step-body">
+        <div class="step-num">2</div>
+        <h3>Select Processing (Blend, Slice, Pack)</h3>
+        <p>We blend, slice, or pack your items fresh to your specification before dispatch.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img class="step-img" src="images/cp.jpg" alt="Get Delivered" />
+      <div class="step-body">
+        <div class="step-num">3</div>
+        <h3>Get It Delivered Fast</h3>
+        <p>Our riders bring your order straight to your doorstep — fresh, fast, and reliable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT + ORDER SUMMARY -->
+<section class="payment-section" id="orders">
+  <div class="payment-card">
+    <h2>💳 Payment Method</h2>
+    <p>Select a payment option to complete your order</p>
+    <div class="pay-toggle">
+      <button class="pay-tab active" onclick="switchTab(this)">🔵 Card Payment (Debit / Credit Card)</button>
+      <button class="pay-tab" onclick="switchTab(this)">🔴 Bank Transfer</button>
+    </div>
+    <div class="card-fields">
+      <input class="form-input" type="text" placeholder="Card Number   1234 5678 9012 3456" />
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Expiry Date  MM / YY" />
+        <input class="form-input" type="text" placeholder="CVV   ***" />
+      </div>
+      <input class="form-input" type="text" placeholder="Name on Card   John Doe" />
+    </div>
+  </div>
+
+  <div class="order-card">
+    <h2>🧾 Order Summary</h2>
+    <div class="order-row"><span>Items Total</span><span>₦25,000</span></div>
+    <div class="order-row"><span>Processing Fee</span><span>₦5,000</span></div>
+    <div class="order-row"><span>Delivery Fee</span><span>₦3,000</span></div>
+    <div class="order-total"><span>Grand Total</span><span>₦33,000</span></div>
+    <button class="place-btn">🔒 Place Order Securely</button>
+  </div>
+</section>
+
+<!-- FRESHLY PROCESSED -->
+<section class="freshly-section">
+  <div class="section-title">
+    <h2>Freshly Processed, Just for You</h2>
+  </div>
+  <div class="freshly-grid">
+    <div class="freshly-card">
+      <img src="images/pepper.jpg" alt="Whole Peppers" />
+      <div class="freshly-arrow">→</div>
+      <img src="images/imff.jpg" alt="Blended Pepper" />
+      <div style="padding: 0 8px; text-align: center;">
+        <div class="freshly-label">Whole Peppers → Blended Pepper</div>
+      </div>
+    </div>
+    <div class="freshly-card">
+      <img src="images/cp.jpg" alt="Whole Vegetables" />
+      <div class="freshly-arrow">→</div>
+      <img src="images/sus.jpg" alt="Chopped Veggies" />
+      <div style="padding: 0 8px; text-align: center;">
+        <div class="freshly-label">Whole Vegetables → Chopped Veggies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moseal Agro Limited – Fresh Food, Processed Your Way</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #1a5c2a;
+      --green-mid:  #2d7a3e;
+      --green-light:#4caf50;
+      --orange:     #e8720c;
+      --orange-lt:  #f4900c;
+      --cream:      #faf6ee;
+      --text-dark:  #1a2712;
+      --text-mid:   #3a4a2e;
+      --border:     #d5e8c4;
+      --white:      #ffffff;
+      --shadow:     0 4px 24px rgba(26,92,42,.12);
+      --nav-h:      68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--white);
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: var(--nav-h);
+      box-shadow: 0 2px 12px rgba(26,92,42,.08);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 46px; height: 46px; background: var(--green-dark);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.1; }
+    .logo-text span:first-child {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 800; color: var(--green-dark);
+      letter-spacing: .5px;
+    }
+    .logo-text span:last-child {
+      display: block; font-size: 10px; font-weight: 600;
+      color: var(--orange); letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    /* Desktop nav links */
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; font-weight: 700; font-size: 14px;
+      color: var(--text-dark); padding-bottom: 3px;
+      border-bottom: 2px solid transparent; transition: all .2s;
+      white-space: nowrap;
+    }
+    .nav-links a.active, .nav-links a:hover {
+      color: var(--green-dark); border-bottom-color: var(--green-dark);
+    }
+
+    .nav-btns { display: flex; gap: 10px; flex-shrink: 0; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2.5px;
+      background: var(--green-dark); border-radius: 2px;
+      transition: all .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; top: var(--nav-h);
+      background: var(--white); z-index: 199;
+      flex-direction: column; padding: 28px 24px;
+      gap: 0; overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform .3s ease;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-menu ul {
+      list-style: none; display: flex; flex-direction: column; gap: 0;
+      margin-bottom: 24px;
+    }
+    .mobile-menu ul li a {
+      display: block; padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none; font-weight: 700; font-size: 16px;
+      color: var(--text-dark);
+    }
+    .mobile-menu ul li a.active,
+    .mobile-menu ul li a:hover { color: var(--green-dark); }
+    .mobile-menu .mob-btns {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    /* ── BUTTONS ──────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 7px; font-weight: 700;
+      font-size: 14px; cursor: pointer; border: 2px solid transparent;
+      transition: all .2s; text-decoration: none; white-space: nowrap;
+    }
+    .btn-green { background: var(--green-dark); color: #fff; }
+    .btn-green:hover { background: var(--green-mid); }
+    .btn-orange { background: var(--orange); color: #fff; }
+    .btn-orange:hover { background: var(--orange-lt); }
+    .btn-outline-orange { background: transparent; color: var(--orange); border-color: var(--orange); }
+    .btn-outline-orange:hover { background: var(--orange); color: #fff; }
+    .btn-outline-green { background: transparent; color: var(--green-dark); border-color: var(--green-dark); }
+    .btn-outline-green:hover { background: var(--green-dark); color: #fff; }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 540px;
+      background: linear-gradient(135deg, #e8f5e2 0%, #f9f4e8 60%, #fff8ee 100%);
+      display: flex; align-items: stretch; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('images/sus.jpg') center/cover no-repeat;
+      opacity: .07; z-index: 0;
+    }
+    .hero-left {
+      flex: 1; padding: 52px 44px 52px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 42px); font-weight: 800;
+      color: var(--green-dark); line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 14px; color: var(--text-mid); font-weight: 600;
+      margin-bottom: 28px; letter-spacing: .4px;
+    }
+    .hero-sub span { margin: 0 6px; color: var(--green-light); }
+
+    /* Delivery form card */
+    .delivery-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow);
+      margin-bottom: 22px; max-width: 440px; width: 100%;
+    }
+    .delivery-card h3 {
+      font-size: 15px; font-weight: 800; color: var(--green-dark);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-bottom: 10px;
+    }
+    .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+    .form-input {
+      padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 7px;
+      font-size: 13px; font-family: inherit; color: var(--text-dark);
+      background: #f8fbf5; outline: none; transition: border .2s; width: 100%;
+      min-width: 0;
+    }
+    .form-input:focus { border-color: var(--green-light); }
+    .form-input::placeholder { color: #a0b090; }
+    select.form-input { appearance: none; cursor: pointer; }
+
+    .phone-btn {
+      background: var(--green-dark); color: #fff; border: none;
+      border-radius: 7px; padding: 9px 12px; font-size: 12px;
+      font-weight: 700; cursor: pointer; display: flex; align-items: center;
+      gap: 5px; white-space: nowrap; width: 100%; justify-content: center;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Hero right image */
+    .hero-right {
+      flex: 0 0 46%; position: relative; z-index: 1;
+      overflow: hidden; min-height: 400px;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center;
+      border-radius: 0 0 0 80px;
+    }
+    .hero-right::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, #f0f7eb 0%, transparent 18%);
+      pointer-events: none;
+    }
+
+    /* ── SECTION BASE ─────────────────────────────────── */
+    section { padding: 60px; }
+    .section-title {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin-bottom: 34px; text-align: center;
+    }
+    .section-title h2 {
+      font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800; color: var(--green-dark); white-space: nowrap;
+    }
+    .section-title::before, .section-title::after {
+      content: ''; flex: 1; height: 2px;
+      background: linear-gradient(to right, transparent, var(--green-light), transparent);
+    }
+
+    /* ── CATEGORIES ───────────────────────────────────── */
+    .categories { background: var(--white); }
+    .cat-head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+    }
+    .cat-head h2 {
+      font-family: 'Playfair Display', serif; font-size: 24px;
+      font-weight: 800; color: var(--green-dark);
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 16px;
+    }
+    .cat-card {
+      background: #f0f7eb; border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 16px 10px; text-align: center;
+      cursor: pointer; transition: all .22s;
+    }
+    .cat-card:hover {
+      background: var(--green-dark); border-color: var(--green-dark);
+      transform: translateY(-4px); box-shadow: 0 8px 20px rgba(26,92,42,.2);
+    }
+    .cat-card:hover .cat-label { color: #fff; }
+    .cat-img {
+      width: 64px; height: 64px; border-radius: 50%;
+      object-fit: cover; margin: 0 auto 10px; display: block;
+      border: 2px solid var(--border);
+    }
+    .cat-label { font-size: 13px; font-weight: 800; color: var(--text-dark); }
+
+    /* ── HOW IT WORKS ─────────────────────────────────── */
+    .how-it-works {
+      background: linear-gradient(180deg, #f0f7eb 0%, #e8f5e2 100%);
+    }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform .25s;
+    }
+    .step-card:hover { transform: translateY(-6px); }
+    .step-img { width: 100%; height: 190px; object-fit: cover; }
+    .step-body { padding: 20px; }
+    .step-num {
+      width: 32px; height: 32px; background: var(--green-dark);
+      color: #fff; border-radius: 50%; font-weight: 800; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+    }
+    .step-body h3 { font-size: 16px; font-weight: 800; color: var(--green-dark); }
+    .step-body p { font-size: 13px; color: var(--text-mid); margin-top: 5px; }
+
+    /* ── PAYMENT + ORDER SUMMARY ──────────────────────── */
+    .payment-section {
+      background: var(--white); display: grid;
+      grid-template-columns: 1fr 340px; gap: 28px; align-items: start;
+    }
+    .payment-card, .order-card {
+      border: 1.5px solid var(--border); border-radius: 14px; padding: 28px;
+    }
+    .payment-card h2, .order-card h2 {
+      font-size: 18px; font-weight: 800; color: var(--green-dark);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
+    }
+    .payment-card p { font-size: 13px; color: var(--text-mid); margin-bottom: 20px; }
+    .pay-toggle { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
+    .pay-tab {
+      padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: 2px solid var(--border); background: #f8fbf5;
+      color: var(--text-dark); display: flex; align-items: center; gap: 7px;
+      transition: all .2s;
+    }
+    .pay-tab.active { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+    .card-fields { display: grid; gap: 12px; }
+    .card-fields .form-row { margin-bottom: 0; }
+
+    .order-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px dashed var(--border);
+      font-size: 14px; color: var(--text-mid);
+    }
+    .order-row:last-of-type { border-bottom: none; }
+    .order-total {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; font-weight: 800; font-size: 17px; color: var(--text-dark);
+      border-top: 2px solid var(--border); margin-top: 6px;
+    }
+    .place-btn {
+      width: 100%; margin-top: 18px; padding: 14px;
+      background: var(--green-dark); color: #fff; border: none;
+      border-radius: 10px; font-size: 15px; font-weight: 800;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      gap: 8px; transition: background .2s;
+    }
+    .place-btn:hover { background: var(--green-mid); }
+
+    /* ── FRESHLY PROCESSED ────────────────────────────── */
+    .freshly-section { background: #f0f7eb; }
+    .freshly-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .freshly-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); display: flex; align-items: center;
+      padding: 10px; gap: 12px; flex-wrap: wrap;
+    }
+    .freshly-card img {
+      width: 110px; height: 90px; object-fit: cover; border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .freshly-arrow {
+      font-size: 26px; color: var(--orange); flex-shrink: 0; font-weight: 900;
+    }
+    .freshly-label { font-size: 13px; font-weight: 700; color: var(--text-dark); }
+
+    /* ── TESTIMONIALS ─────────────────────────────────── */
+    .testimonials { background: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .testi-card {
+      background: #f0f7eb; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 24px; display: flex; gap: 16px;
+      align-items: flex-start;
+    }
+    .testi-avatar {
+      width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--green-light); flex-shrink: 0;
+    }
+    .testi-body { flex: 1; }
+    .testi-quote {
+      font-size: 14px; color: var(--text-mid); font-style: italic;
+      line-height: 1.6; margin-bottom: 8px;
+    }
+    .testi-name { font-size: 13px; font-weight: 800; color: var(--green-dark); }
+
+    /* ── APP BANNER ───────────────────────────────────── */
+    .app-banner {
+      background: var(--green-dark); padding: 36px 60px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      text-align: center;
+    }
+    .app-banner h2 {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      color: #fff; font-weight: 700;
+    }
+    .app-banner p { font-size: 13px; color: #b8e0c0; }
+    .app-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .store-btn {
+      background: #000; color: #fff; border-radius: 10px;
+      padding: 10px 20px; display: flex; align-items: center; gap: 10px;
+      text-decoration: none; border: 1px solid #444; transition: background .2s;
+    }
+    .store-btn:hover { background: #222; }
+    .store-btn .store-icon { font-size: 22px; }
+    .store-btn div span:first-child { display: block; font-size: 10px; color: #aaa; }
+    .store-btn div span:last-child  { display: block; font-size: 14px; font-weight: 800; }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      background: var(--text-dark); color: #c8d8c0;
+      padding: 22px 60px; display: flex;
+      align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer .phone { font-size: 14px; font-weight: 700; color: #e0f0d8; }
+    footer .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer .foot-links a {
+      color: #c8d8c0; text-decoration: none; font-size: 13px;
+      transition: color .2s;
+    }
+    footer .foot-links a:hover { color: var(--green-light); }
+
+    .whatsapp-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 56px; height: 56px; background: #25d366;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.22);
+      cursor: pointer; text-decoration: none; transition: transform .2s;
+    }
+    .whatsapp-fab:hover { transform: scale(1.1); }
+
+    /* ── ANIMATIONS ───────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left h1   { animation: fadeUp .7s ease both; }
+    .hero-sub       { animation: fadeUp .7s .12s ease both; }
+    .delivery-card  { animation: fadeUp .7s .22s ease both; }
+    .hero-actions   { animation: fadeUp .7s .32s ease both; }
+    .hero-right img { animation: fadeUp .9s .1s ease both; }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ════════════════════════════════════════ */
+
+    /* ── TABLET (≤ 1024px) ────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 13px; }
+      .nav-btns .btn { padding: 9px 14px; font-size: 13px; }
+
+      .hero-left { padding: 40px 32px 40px 40px; }
+      .hero-right { flex: 0 0 42%; }
+
+      section { padding: 48px 40px; }
+      .app-banner { padding: 36px 40px; }
+      footer { padding: 20px 40px; }
+
+      .cat-grid { grid-template-columns: repeat(4, 1fr); }
+
+      .payment-section { grid-template-columns: 1fr; padding: 48px 40px; }
+      .order-card { max-width: 500px; }
+    }
+
+    /* ── SMALL TABLET / LARGE MOBILE (≤ 768px) ────────── */
+    @media (max-width: 768px) {
+      /* Hide desktop nav, show hamburger */
+      .nav-links,
+      .nav-btns { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      nav { padding: 0 20px; }
+
+      /* Hero stacks vertically */
+      .hero {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .hero-left {
+        padding: 36px 20px 28px;
+        align-items: flex-start;
+      }
+      .hero-right {
+        flex: none; width: 100%; min-height: 240px;
+        order: -1;
+      }
+      .hero-right img { border-radius: 0; }
+      .hero-right::after {
+        background: linear-gradient(to bottom, transparent 70%, #e8f5e2 100%);
+      }
+
+      .delivery-card { max-width: 100%; }
+      .form-row.triple {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-row.triple .phone-btn { grid-column: 1 / -1; }
+
+      /* Sections */
+      section { padding: 40px 20px; }
+      .app-banner { padding: 32px 20px; }
+      footer { padding: 20px 20px; flex-direction: column; align-items: flex-start; }
+      footer .foot-links { gap: 14px; }
+
+      /* Categories: 3 cols */
+      .cat-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .cat-img { width: 54px; height: 54px; }
+      .cat-label { font-size: 12px; }
+
+      /* Steps: 1 col */
+      .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      /* Freshly grid: 1 col */
+      .freshly-grid { grid-template-columns: 1fr; }
+      .freshly-card { flex-wrap: nowrap; }
+      .freshly-card img { width: 90px; height: 80px; }
+
+      /* Testimonials: 1 col */
+      .testi-grid { grid-template-columns: 1fr; }
+
+      /* Payment: already 1 col from 1024 breakpoint */
+      .payment-section { padding: 40px 20px; gap: 20px; }
+      .pay-toggle { flex-direction: column; }
+      .pay-tab { width: 100%; justify-content: center; }
+
+      /* Section title */
+      .section-title::before,
+      .section-title::after { display: none; }
+      .section-title h2 { font-size: 22px; }
+
+      /* WhatsApp FAB */
+      .whatsapp-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 24px; }
+    }
+
+    /* ── MOBILE (≤ 480px) ─────────────────────────────── */
+    @media (max-width: 480px) {
+      .logo-text span:first-child { font-size: 16px; }
+      .logo-icon { width: 40px; height: 40px; font-size: 19px; }
+
+      .hero-left h1 { font-size: 26px; }
+      .hero-sub { font-size: 13px; }
+      .hero-right { min-height: 200px; }
+
+      .delivery-card { padding: 16px; }
+      .delivery-card h3 { font-size: 14px; }
+      /* Full-width form fields on very small screens */
+      .form-row { grid-template-columns: 1fr; }
+      .form-row.triple { grid-template-columns: 1fr; }
+
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+
+      /* Categories: 2 cols */
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-img { width: 48px; height: 48px; }
+
+      .cat-head h2 { font-size: 20px; }
+
+      .freshly-card { flex-wrap: wrap; justify-content: center; text-align: center; }
+      .freshly-card img { width: 80px; height: 70px; }
+
+      .testi-card { flex-direction: column; align-items: center; text-align: center; }
+
+      .payment-card, .order-card { padding: 20px; }
+      .payment-card h2, .order-card h2 { font-size: 16px; }
+
+      footer .foot-links { gap: 10px; }
+      footer .foot-links a { font-size: 12px; }
+
+      .app-banner h2 { font-size: 18px; }
+      .store-btn { padding: 10px 14px; }
+    }
+
+    /* ── VERY SMALL (≤ 360px) ─────────────────────────── */
+    @media (max-width: 360px) {
+      nav { padding: 0 14px; }
+      .hero-left { padding: 28px 14px 24px; }
+      section { padding: 32px 14px; }
+      footer { padding: 18px 14px; }
+      .app-banner { padding: 28px 14px; }
+      .delivery-card { padding: 14px; }
+      .cat-grid { gap: 8px; }
+      .cat-label { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">🌾</div>
+    <div class="logo-text">
+      <span>MOSEAL</span>
+      <span>AGRO LIMITED</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#vendors">Vendors</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-btns">
+    <a href="#" class="btn btn-green">Order Now</a>
+    <a href="#" class="btn btn-orange">Become a Rider</a>
+  </div>
+
+  <!-- Hamburger -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#" class="active" onclick="closeMobile()">Home</a></li>
+    <li><a href="#how" onclick="closeMobile()">How It Works</a></li>
+    <li><a href="#vendors" onclick="closeMobile()">Vendors</a></li>
+    <li><a href="#orders" onclick="closeMobile()">Orders</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <div class="mob-btns">
+    <a href="#" class="btn btn-green" onclick="closeMobile()">Order Now</a>
+    <a href="#" class="btn btn-orange" onclick="closeMobile()">Become a Rider</a>
+    <a href="#" class="btn btn-outline-orange" onclick="closeMobile()">Become a Vendor</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>Fresh Food, Processed<br/>Your Way, Delivered Fast</h1>
+    <p class="hero-sub">Order <span>•</span> Process <span>•</span> Delivered to Your Doorstep</p>
+
+    <div class="delivery-card">
+      <h3>📍 Delivery Location</h3>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Full Name" />
+        <input class="form-input" type="tel" placeholder="Phone Number" />
+      </div>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Street Address" />
+        <select class="form-input">
+          <option>City</option>
+          <option>Lagos</option>
+          <option>Abuja</option>
+          <option>Port Harcourt</option>
+        </select>
+      </div>
+      <div class="form-row triple">
+        <select class="form-input"><option>State ▾</option><option>Lagos</option><option>FCT</option><option>Rivers</option></select>
+        <select class="form-input"><option>Zip Code ▾</option><option>100001</option><option>900001</option></select>
+        <button class="phone-btn">📞 8259664766</button>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#" class="btn btn-green">Order Now</a>
+      <a href="#" class="btn btn-outline-orange">Become a Vendor</a>
+      <a href="#" class="btn btn-outline-orange">Become a Rider</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="images/imff.jpg" alt="Freshly processed food" />
+  </div>
+</div>
+
+<!-- SHOP BY CATEGORY -->
+<section class="categories">
+  <div class="cat-head">
+    <span style="font-size:22px">🛒</span>
+    <h2>Shop by Category</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img class="cat-img" src="images/sus.jpg" alt="Vegetables" />
+      <div class="cat-label">Vegetables</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/ai.jpg" alt="Poultry" />
+      <div class="cat-label">Poultry</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/cp.jpg" alt="Meat & Fish" />
+      <div class="cat-label">Meat &amp; Fish</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/pepper.jpg" alt="Spices" />
+      <div class="cat-label">Spices</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/hero-farmers.jpg" alt="Grains" />
+      <div class="cat-label">Grains</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/iv.jpg" alt="Tubers" />
+      <div class="cat-label">Tubers</div>
+    </div>
+    <div class="cat-card">
+      <img class="cat-img" src="images/imff.jpg" alt="Cooking Oil" />
+      <div class="cat-label">Cooking Oil</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how">
+  <div class="section-title">
+    <h2>How It Works</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <img class="step-img" src="images/pepper.jpg" alt="Choose Products" />
+      <div class="step-body">
+        <div class="step-num">1</div>
+        <h3>Choose Your Products</h3>
+        <p>Browse our fresh categories — vegetables, spices, meat, and more. Pick exactly what you need.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img class="step-img" src="images/imff.jpg" alt="Select Processing" />
+      <div class="step-body">
+        <div class="step-num">2</div>
+        <h3>Select Processing (Blend, Slice, Pack)</h3>
+        <p>We blend, slice, or pack your items fresh to your specification before dispatch.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <img class="step-img" src="images/cp.jpg" alt="Get Delivered" />
+      <div class="step-body">
+        <div class="step-num">3</div>
+        <h3>Get It Delivered Fast</h3>
+        <p>Our riders bring your order straight to your doorstep — fresh, fast, and reliable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT + ORDER SUMMARY -->
+<section class="payment-section" id="orders">
+  <div class="payment-card">
+    <h2>💳 Payment Method</h2>
+    <p>Select a payment option to complete your order</p>
+    <div class="pay-toggle">
+      <button class="pay-tab active" onclick="switchTab(this)">🔵 Card Payment (Debit / Credit Card)</button>
+      <button class="pay-tab" onclick="switchTab(this)">🔴 Bank Transfer</button>
+    </div>
+    <div class="card-fields">
+      <input class="form-input" type="text" placeholder="Card Number   1234 5678 9012 3456" />
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Expiry  MM / YY" />
+        <input class="form-input" type="text" placeholder="CVV  ***" />
+      </div>
+      <input class="form-input" type="text" placeholder="Name on Card   John Doe" />
+    </div>
+  </div>
+
+  <div class="order-card">
+    <h2>🧾 Order Summary</h2>
+    <div class="order-row"><span>Items Total</span><span>₦25,000</span></div>
+    <div class="order-row"><span>Processing Fee</span><span>₦5,000</span></div>
+    <div class="order-row"><span>Delivery Fee</span><span>₦3,000</span></div>
+    <div class="order-total"><span>Grand Total</span><span>₦33,000</span></div>
+    <button class="place-btn">🔒 Place Order Securely</button>
+  </div>
+</section>
+
+<!-- FRESHLY PROCESSED -->
+<section class="freshly-section">
+  <div class="section-title">
+    <h2>Freshly Processed, Just for You</h2>
+  </div>
+  <div class="freshly-grid">
+    <div class="freshly-card">
+      <img src="images/pepper.jpg" alt="Whole Peppers" />
+      <div class="freshly-arrow">→</div>
+      <img src="images/imff.jpg" alt="Blended Pepper" />
+      <div style="padding: 0 8px; text-align: center;">
+        <div class="freshly-label">Whole Peppers → Blended Pepper</div>
+      </div>
+    </div>
+    <div class="freshly-card">
+      <img src="images/cp.jpg" alt="Whole Vegetables" />
+      <div class="freshly-arrow">→</div>
+      <img src="images/sus.jpg" alt="Chopped Veggies" />
+      <div style="padding: 0 8px; text-align: center;">
+        <div class="freshly-label">Whole Vegetables → Chopped Veggies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-title">
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <img class="testi-avatar" src="images/ai.jpg" alt="Aisha D." />
+      <div class="testi-body">
+        <p class="testi-quote">"Super convenient! The blending service is a lifesaver. I no longer spend hours in the kitchen before cooking."</p>
+        <div class="testi-name">– Aisha D.</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <img class="testi-avatar" src="images/cp.jpg" alt="Kofi B." />
+      <div class="testi-body">
+        <p class="testi-quote">"Fast delivery and fresh products. Highly recommended. Moseal Agro has made grocery shopping effortless!"</p>
+        <div class="testi-name">– Kofi B.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP BANNER -->
+<div class="app-banner">
+  <h2>📱 Download Our App</h2>
+  <p>Get the Moseal Phone App. Bringing fresh orders served.</p>
+  <div class="app-btns">
+    <a href="#" class="store-btn">
+      <span class="store-icon">🍎</span>
+      <div><span>Download on the</span><span>App Store</span></div>
+    </a>
+    <a href="#" class="store-btn">
+      <span class="store-icon">▶</span>
+      <div><span>Get it on</span><span>Google Play</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="phone">📞 +234 800 123 4567</div>
+  <div class="foot-links">
+    <a href="#">About Us</a>
+    <a href="#">F.A.Q.</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">New Sectors</a>
+    <a href="#">Lome</a>
+    <a href="#">Mche</a>
+    <a href="#">Gunploes</a>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="whatsapp-fab" href="https://wa.me/2348001234567" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+  /* ── Payment tab toggle ── */
+  function switchTab(el) {
+    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  /* ── Hamburger / mobile menu ── */
+  const hamburger   = document.getElementById('hamburger');
+  const mobileMenu  = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* Close drawer if window resizes above 768px */
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMobile();
+  });
+
+  /* ── Smooth scroll for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
+
+<section class="testimonials">
+  <div class="section-title">
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <img class="testi-avatar" src="images/ai.jpg" alt="Aisha D." />
+      <div class="testi-body">
+        <p class="testi-quote">"Super convenient! The blending service is a lifesaver. I no longer spend hours in the kitchen before cooking."</p>
+        <div class="testi-name">– Aisha D.</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <img class="testi-avatar" src="images/cp.jpg" alt="Kofi B." />
+      <div class="testi-body">
+        <p class="testi-quote">"Fast delivery and fresh products. Highly recommended. Moseal Agro has made grocery shopping effortless!"</p>
+        <div class="testi-name">– Kofi B.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP BANNER -->
+<div class="app-banner">
+  <h2>📱 Download Our App</h2>
+  <p>Get the Moseal Phone App. Bringing fresh orders served.</p>
+  <div class="app-btns">
+    <a href="#" class="store-btn">
+      <span class="store-icon">🍎</span>
+      <div>
+        <span>Download on the</span>
+        <span>App Store</span>
+      </div>
+    </a>
+    <a href="#" class="store-btn">
+      <span class="store-icon">▶</span>
+      <div>
+        <span>Get it on</span>
+        <span>Google Play</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="phone">📞 +234 800 123 4567</div>
+  <div class="foot-links">
+    <a href="#">About Us</a>
+    <a href="#">F.A.Q.</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">New Sectors</a>
+    <a href="#">Lome</a>
+    <a href="#">Mche</a>
+    <a href="#">Gunploes</a>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="whatsapp-fab" href="https://wa.me/2348001234567" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+  function switchTab(el) {
+    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
